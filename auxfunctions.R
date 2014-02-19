@@ -53,7 +53,7 @@ compute.likelihood <- function(doc, model, phi, gammav){
   # print(likelihood)
   for (k in 1:nTopics){
     addlike = (alpha - 1)*(dig[k] - digsum) + lgamma(gammav[k]) - (gammav[k] - 1)*(dig[k] - digsum)
-    likelihood = likelihood 
+    likelihood = likelihood + addlike
     # print(sprintf("k_num %f",addlike))
     for (n in 1:doc$dlength){
       if (phi[n,k] > 0){
